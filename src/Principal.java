@@ -121,7 +121,9 @@ public class Principal {
 
 
 
+
         System.out.println("\u001B[1mTotal dos salários dos funcionários:\u001B[0m \n");
+
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
         symbols.setDecimalSeparator(',');
         symbols.setGroupingSeparator('.');
