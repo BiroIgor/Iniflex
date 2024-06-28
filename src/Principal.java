@@ -29,6 +29,11 @@ public class Principal {
         //3.2 – Remover o funcionário “João” da lista.
         funcionarios.removeIf(funcionario -> funcionario.getNome().equals("João"));
 
+        //3.3 - Mudanças feitas na classe Funcionario
+        System.out.println("\u001B[1mLista de Funcionários após remover o funcionário João:\u001B[0m \n");
+        funcionarios.forEach(System.out::println);
+
+        System.out.println("-----------------------------------------");
 
         //3.4 - Atualizar salários com 10% de aumento
         for (Funcionario funcionario : funcionarios) {
@@ -49,7 +54,7 @@ public class Principal {
             }
             funcionariosPorFuncao.get(funcao).add(funcionario);
         }
-
+        System.out.println("\u001B[1mLista de Funcionários por função:\u001B[0m \n");
         for (Map.Entry<String, List<Funcionario>> entry : funcionariosPorFuncao.entrySet()) {
             System.out.println("\u001B[1m" + entry.getKey() + "\u001B[0m \n");
             for (Funcionario funcionario : entry.getValue()) {
@@ -69,7 +74,7 @@ public class Principal {
                 })
                 .collect(Collectors.toList());
 
-        System.out.println("\u001B[1mFuncionários que fazem aniversário em outubro e dezembro:\u001B[0m");
+        System.out.println("\u001B[1mFuncionários que fazem aniversário em outubro e dezembro:\u001B[0m \n");
         aniversariantesOutubroDezembro.forEach(funcionario -> {
             System.out.println(funcionario.toString());
             System.out.println();
@@ -86,7 +91,7 @@ public class Principal {
             LocalDate hoje = LocalDate.now();
             int idade = Period.between(maiorIdade.getDataNascimento(), hoje).getYears();
 
-            System.out.println("\u001B[1mFuncionário com a maior idade:\u001B[0m");
+            System.out.println("\u001B[1mFuncionário com a maior idade:\u001B[0m \n");
             System.out.println("Nome: " + maiorIdade.getNome());
             System.out.println("Idade: " + idade + " Anos \n\n");
         } else {
@@ -100,7 +105,7 @@ public class Principal {
                 .sorted(Comparator.comparing(Funcionario::getNome))
                 .collect(Collectors.toList());
 
-        System.out.println("\u001B[1mLista de funcionários em ordem alfabética:\u001B[0m");
+        System.out.println("\u001B[1mLista de funcionários em ordem alfabética:\u001B[0m \n");
         funcionariosOrdenados.forEach(funcionario -> {
             System.out.println(funcionario.toString());
             System.out.println();
@@ -116,7 +121,7 @@ public class Principal {
 
 
 
-        System.out.println("\u001B[1mTotal dos salários dos funcionários:\u001B[0m ");
+        System.out.println("\u001B[1mTotal dos salários dos funcionários:\u001B[0m \n");
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
         symbols.setDecimalSeparator(',');
         symbols.setGroupingSeparator('.');
@@ -127,7 +132,7 @@ public class Principal {
 
 //3.12 Imprimir quantos salários mínimos cada funcionário ganha
         BigDecimal salarioMinimo = new BigDecimal("1212.00");
-        System.out.println("\u001B[1mQuantidade de salários mínimos de cada funcionário:\u001B[0m");
+        System.out.println("\u001B[1mQuantidade de salários mínimos de cada funcionário:\u001B[0m \n");
         funcionarios.forEach(funcionario -> {
             BigDecimal salarioFuncionario = funcionario.getSalario();
             BigDecimal salariosMinimos = salarioFuncionario.divide(salarioMinimo, 2, RoundingMode.HALF_UP);

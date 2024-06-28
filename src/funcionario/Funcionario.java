@@ -38,6 +38,7 @@ public class Funcionario extends Pessoa {
         this.salario = salario;
     }
 
+    //3.3-
     public String toString() {
         // Configuração do formato numérico
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
