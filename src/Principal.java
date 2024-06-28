@@ -1,6 +1,9 @@
 import funcionario.Funcionario;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -106,12 +109,19 @@ public class Principal {
         System.out.println("-----------------------------------------");
 
         //3.11 Calcular o total dos salários dos funcionários
+
         BigDecimal totalSalarios = funcionarios.stream()
                 .map(Funcionario::getSalario)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
+
+
         System.out.println("\u001B[1mTotal dos salários dos funcionários:\u001B[0m ");
-        System.out.println("R$ " + totalSalarios + "\n\n");
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
+        symbols.setDecimalSeparator(',');
+        symbols.setGroupingSeparator('.');
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00", symbols);
+        System.out.println("R$ " + decimalFormat.format(totalSalarios) + "\n\n");
 
         System.out.println("-----------------------------------------");
 
@@ -120,7 +130,7 @@ public class Principal {
         System.out.println("\u001B[1mQuantidade de salários mínimos de cada funcionário:\u001B[0m");
         funcionarios.forEach(funcionario -> {
             BigDecimal salarioFuncionario = funcionario.getSalario();
-            BigDecimal salariosMinimos = salarioFuncionario.divide(salarioMinimo, 2, BigDecimal.ROUND_HALF_UP);
+            BigDecimal salariosMinimos = salarioFuncionario.divide(salarioMinimo, 2, RoundingMode.HALF_UP);
             System.out.println(funcionario.getNome() + ": " + salariosMinimos + " salários mínimos");
         });
 

@@ -43,7 +43,8 @@ public class Funcionario extends Pessoa {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
         symbols.setDecimalSeparator(',');
         symbols.setGroupingSeparator('.');
-        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00", symbols);
+        DecimalFormat decimalFormat = new DecimalFormat("R$ ###,###.00", symbols);
+
 
         // Construção da representação formatada
         StringBuilder sb = new StringBuilder();
