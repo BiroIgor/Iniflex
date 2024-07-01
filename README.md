@@ -1,4 +1,4 @@
-ambiente de desenvolvimento utilizado: (![image](https://github.com/BiroIgor/Iniflex/assets/130564238/08138c0a-84b5-4adf-9639-09fa0d3aaef1))
+ambiente de desenvolvimento utilizado: \n
 <img src="https://github.com/BiroIgor/Iniflex/assets/130564238/08138c0a-84b5-4adf-9639-09fa0d3aaef1" alt="Descrição da Imagem" width="60"/>
 
 Questões Desenvolvidas:
